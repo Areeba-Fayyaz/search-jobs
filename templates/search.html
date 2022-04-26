@@ -23,6 +23,7 @@
 				<form method="post" action="/searchusers/">
 					{% csrf_token %}
 					<!--Type the name you want to search and click on submit-->
+					
 					<input
 						type="text"
 						placeholder="Enter Title..."
@@ -30,16 +31,29 @@
 						name="search"
 						id="search"
 					/>
-					{% comment %}
-					<select name="category" id="category" name="">
-						<option value="">Select Category</option>
-						<!--select type to user-->
-						<option value="Users">Users</option>
-					</select>
-					{% endcomment %}
+					
 					<input type="submit" value="Search" />
 				</form>
+
 			</div>
+		<div class="tm-container">
+					<ul>
+					<section class="tm-section tm-section-small ">
+						<!--Showing all the details we retrieved Here-->
+					
+						{% for jobdescription,companyname in comb_lis %}
+						<li>
+						<h2>{{ companyname }}</h2>
+							<h4>Job description</h4>
+							<p>{{jobdescription}}</p>
+						</li>
+					
+						{% endfor %}
+				
+					</section>	</ul>
+				{% comment %} </div> {% endcomment %} 
+			
+			</div> 
 		</div>
 	</body>
 </html>

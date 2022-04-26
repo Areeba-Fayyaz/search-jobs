@@ -40,6 +40,7 @@ config={
 firebase=pyrebase.initialize_app(config)
 authe = firebase.auth()
 database=firebase.database()
+comb_lis=[]
 
 # move to this search.html page to search for content
 def search(request):
@@ -101,7 +102,8 @@ def searchusers(request):
 				# print(val,value)
 		print(len(jobdescriptions))
 		comb_lis = zip(jobdescriptions,companynamelist)
-		return render(request, "SearchUsers.html", {"comb_lis": comb_lis})
+			
+		return render(request, "search.html", {"comb_lis": comb_lis})
 
 				
 
